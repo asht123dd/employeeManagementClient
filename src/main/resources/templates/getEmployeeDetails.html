@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Employee Management</title>
+<link rel="stylesheet" th:href="@{/style.css}"></link>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    // Get value on button click and show alert
+    $("#submitButton").click(function(){
+        var str = $("#employeeId").val();
+		alert(str);
+		str2='http://localhost:8081/'.concat(str);
+		alert(str2);
+        location.replace(str2);
+	});
+});
+</script>
+</head>
+
+<body>
+	<label for="employeeId">EmployeeId:</label>
+	<input type="number" id="employeeId" name="employeeId">
+	<input type="submit" id="submitButton" value="Submit"
+		onclick="myFunction()">
+</body>
+</html>

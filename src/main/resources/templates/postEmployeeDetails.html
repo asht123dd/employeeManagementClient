@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>Employee Management</title>
+<link rel="stylesheet" th:href="@{/style.css}"></link>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    // Get value on button click and show alert
+    $("#submitButton").click(function(){
+        var str = $("#employeeId").val();
+		alert(str);
+		str2='http://localhost:8081/'.concat(str);
+		alert(str2);
+        $.post(str2,{
+        	employeeName: $("#employeeName").val(),
+        	currentAddress: $("#currentAddress").val(),
+        	previousAddress1: $("#previousAddress1").val(),
+        	previousAddress2: $("#previousAddress2").val(),
+        	previousAddress3: $("#previousAddress3").val(),
+        	graduatedFrom: $("#graduatedFrom").val(),
+        	graduateDegree: $("#graduateDegree").val(),
+        	graduationYear: $("#graduationYear").val(),
+        	intermediateYear: $("#intermediateYear").val(),
+        	matriculationYear: $("#matriculationYear").val(),
+        	yearsOfExperience: $("yearsOfExperience").val()
+        },function(data,status){
+        	alert("Data: " + data + "\nStatus: " + status);
+        });
+	});
+});
+</script>
+</head>
+
+<body>
+	<label for="employeeName">Name:</label>
+	<input type="text" id="employeeName" name="employeeName" size="50"></input>
+	<br />
+	<label for="employeeId">EmployeeID:</label>
+	<input type="text" id="employeeId" name="employeeId" size="50"></input>
+	<br />
+	<label for="currentAddress">CurrentAddress:</label>
+	<input type="text" id="currentAddress" name="currentAddress" size="15"></input>
+	<br />
+	<label for="previousAddress1">Previous Address 1:</label>
+	<input type="text" id="previousAddress1" name="previousAddress1" size="15"></input>
+	<br />
+	<label for="previousAddress2">Previous Address 2:</label>
+	<input type="text" id="previousAddress2" name="previousAddress2" size="15"></input>
+	<br />
+	<label for="previousAddress3">Previous Address 3:</label>
+	<input type="text" id="previousAddress3" name="previousAddress3" size="15"></input>
+	<br />
+	<label for="graduatedFrom">Graduated from:</label>
+	<input type="text" id="graduatedFrom" name="graduatedFrom" size="15"></input>
+	<br />
+	<label for="graduateDegree">Graduated in:</label>
+	<input type="text" id="graduateDegree" name="graduateDegree" size="15"></input>
+	<br />
+	<label for="graduationYear">Graduation Year:</label>
+	<input type="text" id="graduationYear" name="graduationYear" size="15"></input>
+	<br />
+	<label for="intermediateYear">Intermediate Year:</label>
+	<input type="text" id="intermediateYear" name="intermediateYear" size="15"></input>
+	<br />
+	<label for="matriculationYear">Matriculation Year:</label>
+	<input type="text" id="matriculationYear" name="matriculationYear" size="15"></input>
+	<br />
+	<label for="yearsOfExperience">Years of Experience:</label>
+	<input type="text" id="yearsOfExperience" name="yearsOfExperience" size="15"></input>
+	<br />
+	<input type="submit" id="submitButton" value="Submit"
+		onclick="myFunction()">
+</body>
+</html>
